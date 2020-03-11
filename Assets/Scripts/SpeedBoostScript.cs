@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 
 public class SpeedBoostScript : NetworkBehaviour
 {
+    public AudioSource sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +23,10 @@ public class SpeedBoostScript : NetworkBehaviour
     {
         Destroy(gameObject);
         Debug.Log("Destroyed Speed Boost");
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        sound.Play();
     }
 }
